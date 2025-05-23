@@ -28,6 +28,13 @@ Aplicativo focado no gerenciamento de veículos pessoais ou de frota, oferecendo
 ## 📑 Documentação
 
 A documentação completa de requisitos funcionais, não funcionais e de negócios está disponível no diretório [`/docs/requisitos.md`](docs/requisitos.md).
+## 📊 Diagramas de Atividades
 
+Os diagramas de atividades do sistema estão disponíveis no diretório [`/documentos/`](documentos/), no formato `.puml` (PlantUML). Eles representam os principais fluxos do sistema.
+
+### Como visualizar:
+
+- Via navegador: [https://plantuml.com/plantuml](https://plantuml.com/plantuml)
+- Ou com a extensão PlantUML no Visual Studio Code (`Alt + D` ou `Option + D`)
 ---
 
