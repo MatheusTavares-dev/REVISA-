@@ -1,0 +1,41 @@
+@startuml
+start
+title Diagrama de Atividade - Registrar Despesas Gerais (Revisaí)
+
+:Usuário acessa veículo específico;
+:Sistema exibe menu de despesas;
+
+if (opção escolhida) then (Registrar nova despesa)
+
+ repeat
+
+    fork
+      :IPVA/Seguro;
+    fork again
+      :Multas;
+    fork again
+      :Lavagens;
+    fork again
+      :Outras;
+    end fork
+    :Categorizar (obrigatório);
+
+    :Anexar comprovante;
+    :Validar placa vinculada;
+  repeat while (Registrar nova despesa?) is (Sim)
+  -> Não;
+   
+  
+else (Gerar relatórios)
+ :Selecionar filtros:
+ *Mês, Categoria, Veículo*;
+ :Exportar (PDF/Excel);
+note right
+   *Integrações*:
+   - Alertas para IPVA
+   - Cálculo de custos
+   - Histórico de manutenções
+   end note
+endif
+stop
+@enduml

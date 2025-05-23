@@ -1,0 +1,37 @@
+@startuml
+start
+title Diagrama de Atividade - Manutenções do veículo (Revisaí)
+
+:Usuário acessa aba "Manutenções" do veículo;
+:Seleciona "Adicionar Manutenção";
+
+:Sistema exibe campos para preenchimento;
+:Usuário preenche: tipo de serviço, data, quilometragem, oficina, valor, observações;
+
+if (Upload de nota fiscal?) then (Sim)
+  :Usuário faz upload do arquivo;
+  :Sistema aplica OCR e sugere preenchimento;
+  :Usuário revisa e confirma os dados;
+else (Não)
+  :Usuário confirma os dados inseridos manualmente;
+endif
+
+:Sistema salva registro e associa ao autor;
+:Histórico do veículo é atualizado;
+
+partition "Fluxo Alternativo FA02 - Edição/Exclusão" {
+  :Usuário acessa histórico de manutenções;
+  :Seleciona uma manutenção;
+
+  if (Editar ou Excluir?) then (Editar)
+    :Usuário edita dados;
+  else (Excluir)
+    :Usuário solicita exclusão;
+  endif
+
+  :Sistema registra o autor da modificação;
+  :Histórico atualizado;
+}
+
+stop
+@enduml

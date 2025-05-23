@@ -1,0 +1,27 @@
+@startuml
+start
+title Diagrama de Atividade - Emitir Relatorio (Revisaí)
+
+:Usuário faz login (ou já está autenticado);
+:Seleciona veículo;
+:Abre menu de relatórios;
+:Escolhe tipo de relatório (histórico, despesas, manutenções...);
+
+if (Permissão de acesso?) then (Sim)
+  :Seleciona filtros (período, motorista, oficina, etc.);
+  :Buscar dados no banco;
+
+  if (Dados encontrados?) then (Sim)
+    :Gerar relatório em PDF;
+    :Exibir opção de download ou compartilhamento;
+    :Exibir relatório visual com gráficos (opcional);
+  else (Não)
+    :Exibir mensagem "Sem dados para o período";
+  endif
+
+else (Não)
+  :Exibir mensagem "Permissão negada";
+endif
+
+stop
+@enduml
